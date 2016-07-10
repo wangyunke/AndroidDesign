@@ -1,9 +1,10 @@
 package com.i.designpattern.activity;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import com.i.designpattern.R;
+
+import java.util.concurrent.Executors;
 
 public class MainActivity extends BaseActivity {
 
@@ -16,17 +17,8 @@ public class MainActivity extends BaseActivity {
     }
 
     public void process() {
-        Intent intent1=new Intent(this,MainIntentService.class);
-        intent1.putExtra("intent","intent1");
-        startService(intent1);
-
-        Intent intent2=new Intent(this,MainIntentService.class);
-        intent1.putExtra("intent","intent2");
-        startService(intent2);
-
-        Intent intent3=new Intent(this,MainIntentService.class);
-        intent1.putExtra("intent","intent3");
-        startService(intent3);
+        Executors.newCachedThreadPool();
+        Executors.newFixedThreadPool(10);
     }
 
 }
