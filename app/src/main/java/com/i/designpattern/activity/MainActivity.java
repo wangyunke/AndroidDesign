@@ -1,10 +1,9 @@
 package com.i.designpattern.activity;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 
 import com.i.designpattern.R;
-
-import java.util.concurrent.Executors;
 
 public class MainActivity extends BaseActivity {
 
@@ -17,8 +16,17 @@ public class MainActivity extends BaseActivity {
     }
 
     public void process() {
-        Executors.newCachedThreadPool();
-        Executors.newFixedThreadPool(10);
+        MyTask myTask=new MyTask();
+        myTask.execute();
+        myTask.cancel(true);
+    }
+
+    private class MyTask extends AsyncTask{
+
+        @Override
+        protected Object doInBackground(Object[] params) {
+            return null;
+        }
     }
 
 }
