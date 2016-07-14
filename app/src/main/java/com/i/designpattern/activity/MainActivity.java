@@ -1,8 +1,9 @@
 package com.i.designpattern.activity;
 
-import android.os.AsyncTask;
 import android.os.Bundle;
+import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
 import com.i.designpattern.R;
 
 public class MainActivity extends BaseActivity {
@@ -16,17 +17,9 @@ public class MainActivity extends BaseActivity {
     }
 
     public void process() {
-        MyTask myTask=new MyTask();
-        myTask.execute();
-        myTask.cancel(true);
+        ImageView mImageView = (ImageView) findViewById(R.id.imageview);
+        Glide.with(this)
+                .load("http://inthecheesefactory.com/uploads/source/glidepicasso/cover.jpg")
+                .into(mImageView);
     }
-
-    private class MyTask extends AsyncTask{
-
-        @Override
-        protected Object doInBackground(Object[] params) {
-            return null;
-        }
-    }
-
 }

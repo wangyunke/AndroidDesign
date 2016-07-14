@@ -11,23 +11,22 @@
         android:largeHeap="true"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.MainActivity">
+        <activity android:name=".activity.MainActivity"/>
+        <activity android:name=".activity.KnowledgeActivity" />
+
+        <service
+            android:name=".activity.MainService"
+            android:exported="false" />
+        <service android:name=".activity.MainIntentService"></service>
+
+        <activity android:name=".activity.BaseActivity" />
+        <activity android:name=".rxjava.RxJavaActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.KnowledgeActivity" />
-
-        <service
-            android:name=".activity.MainService"
-            android:exported="false" />
-
-        <service android:name=".activity.MainIntentService">
-        </service>
-
-        <activity android:name=".activity.BaseActivity" />
     </application>
 
 </manifest>
