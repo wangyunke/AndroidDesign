@@ -10,7 +10,7 @@ import com.i.designpattern.R;
 
 public class KnowledgeActivity extends AppCompatActivity {
     private MyHandler mHandler=new MyHandler();
-    private static TextView textView;
+    private TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,13 +20,12 @@ public class KnowledgeActivity extends AppCompatActivity {
 
     private void studyKnow() {
         final TextView textView = (TextView)findViewById(R.id.tv);
-        mHandler.sendMessageDelayed(Message.obtain(),5000);
+        mHandler.sendMessageDelayed(Message.obtain(),50000);
     }
 
-    public static class MyHandler extends Handler{
+    public class MyHandler extends Handler{
         @Override
         public void handleMessage(Message msg) {
-            textView.setText("执行了");
             System.out.println("执行了");
         }
     }

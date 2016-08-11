@@ -1,6 +1,5 @@
 package com.i.designpattern.activity;
 
-import android.os.AsyncTask;
 import android.os.Bundle;
 
 import com.i.designpattern.R;
@@ -12,21 +11,21 @@ public class MainActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        process();
+//        process();
     }
 
-    public void process() {
-        MyTask myTask=new MyTask();
-        myTask.execute();
-        myTask.cancel(true);
-    }
+    /*public void process() {
+        ImageView mImageView = (ImageView) findViewById(R.id.imageview);
+        Glide.with(this)
+                .load("http://inthecheesefactory.com/uploads/source/glidepicasso/cover.jpg")
+                .into(mImageView);
 
-    private class MyTask extends AsyncTask{
-
-        @Override
-        protected Object doInBackground(Object[] params) {
-            return null;
-        }
-    }
-
+        ((TextView) findViewById(R.id.tv)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(MainActivity.this,KnowledgeActivity.class);
+                startActivity(intent);
+            }
+        });
+    }*/
 }
