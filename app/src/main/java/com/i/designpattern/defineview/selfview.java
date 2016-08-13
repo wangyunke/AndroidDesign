@@ -22,6 +22,6 @@ public class SelfView extends View{
     }
 
     public SelfView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-        super(context, attrs, defStyleAttr, defStyleRes);
+        super(context, attrs, defStyleAttr);
     }
 }

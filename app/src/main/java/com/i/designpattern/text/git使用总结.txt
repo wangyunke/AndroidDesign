@@ -4,13 +4,25 @@
 
 
 ----------------------------Gerrit-------------------------------
-
+1、保持原有的Change-Id：
+git cherry pick
 git add .
 git commit --amend
 repo upload .
 
+2、
+
 
 -----------------------------------------------------------------
+
+git commit --amend
+合并缓存区的修改和最近的一次commit, 然后用生成的新的commit替换掉老的.
+如果缓存区没有内容, 那么利用amend可以修改上一次commit的描述.
+
+git commit --amend --no-edit
+--no-edit能让我们修复commit,而且不要修改commit描述
+
+------------------------------------------------------------
 ./debug.sh
 brew update
 brew upgrade
