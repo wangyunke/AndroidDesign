@@ -4,12 +4,17 @@
 
 
 ----------------------------Gerrit-------------------------------
+<<<<<<< HEAD
 1、保持原有的Change-Id：
 git cherry pick
+=======
+
+>>>>>>> d540f8f... add git.txt
 git add .
 git commit --amend
 repo upload .
 
+<<<<<<< HEAD
 2、
 
 
@@ -23,6 +28,10 @@ git commit --amend --no-edit
 --no-edit能让我们修复commit,而且不要修改commit描述
 
 ------------------------------------------------------------
+=======
+
+-----------------------------------------------------------------
+>>>>>>> d540f8f... add git.txt
 ./debug.sh
 brew update
 brew upgrade
