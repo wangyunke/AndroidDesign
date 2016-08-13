@@ -1,0 +1,243 @@
+
+
+
+
+
+----------------------------Gerrit-------------------------------
+
+git add .
+git commit --amend
+repo upload .
+
+
+-----------------------------------------------------------------
+./debug.sh
+brew update
+brew upgrade
+
+gitk —-all 弹出git管理窗口
+
+git branch --all 本地和远程所有分支
+
+git commit -am "预约练车安排页基础框架。"  提交到本地（a所有,m注释）
+
+git push origin supercoach3.6.0_wyk 该分支提交到远程分支上
+
+-----------------------------------------------------------------
+提交流程：
+
+0、git add —-all  /  git add .     提交到暂存区
+   git commit -am “”              提交到本地版本库
+
+1、git fetch 获取远程（暂不合并）
+
+2、gitk(自己的)  /  gitk —-all(全部)  都是本地的版本库
+
+3、git rebase origin/master
+
+4、git rebase —-continue
+
+5、git push origin master
+
+
+git pull  获取远程（合并）
+git checkout -b supercoach3.6.0_wyk 创建并切换到
+
+———————————————————暂存编辑的内容——————————————————
+1、git add —all
+1、git stash (工作现场“储藏”起来)
+2、git fetch
+3、git pull —rebase
+4、git stash pop(储存的工作内容加入当前head)
+
+------------------------------------------------
+初始化仓库：git init
+
+添加到仓库，分两步：
+git add file.txt （添加到暂存区）
+git commit -m "注释" （添加到版本库中）
+
+--------------------------------------------------
+
+工作区的状态：git status
+
+工作区和stage文件的差异 ：git diff
+
+stage和版本库之间的差异：git diff --cached
+
+-----------------------------------------------------------------------
+
+在版本之间穿梭:git reset --hard commit_id。
+
+查看提交历史:git log
+
+重返未来，查看命令历史：git reflog
+
+-------------------------------------------------------------------
+
+场景1：丢弃工作区的修改时:git checkout -- file。
+
+场景2：
+添加到暂存区时，想丢弃修改，分两步:
+1、git reset HEAD file，
+2、场景1操作。
+
+场景3：
+不合适的修改到版本库时，想要撤销，参考版本回退一节，不过前提是没有推送到远程库
+
+-------------------------------------------------------------------
+
+删除：$ rm test.txt
+回退删除：$ git checkout test.txt
+
+删除(不能回退)：$ git rm test.txt
+提交：git commit
+
+-------------------------------------------------------------------------
+
+创建SSH Key：$ ssh-keygen -t rsa -C "youremail@example.com"
+公私钥：C:\Users\ykw\.ssh
+
+-------------------------------------------------
+
+关联远程库：git remote add origin git@github.com:wangyunke/learngit.git
+
+克隆仓库：git clone git@github.com:wangyunke/learngit.git
+
+推送master分支的所有内容：git push -u origin master
+(第一次加-u,把本地的master分支和远程的master分支关联起来，在以后的推送或者拉取时就可以简化命令)
+
+抓取远程的新提交：git pull
+
+查看远程库信息：git remote -v
+
+------------------------------解决冲突-------------------------------------
+
+1、git pull
+2、git add file.text , git commit -m "confict"
+3、git push
+
+-----------------------------------------------------------------
+
+查看分支：git branch
+
+创建分支：git branch dev
+
+切换分支：git checkout dev
+
+创建+切换分支：git checkout -b dev
+
+删除分支：git branch -d <name>
+
+合并分支到当前分支：
+1、git merge dev （删除分支后，会丢掉分支信息）
+2、git merge --no-ff -m "no-ff" dev (分支历史有分支信息)
+3、git log --graph（分支合并图）
+
+--------------------------------------------------------------
+
+在本地，创建与远程分支对应的分支:git checkout -b dev origin/dev；
+
+建立本地分支和远程分支的关联:git branch --set-upstream dev origin/dev；
+
+--------------------dev分支工作只进行到一半，还没法提交本地bug------------------
+
+1、git checkout -b bug （建立bug分支）
+2、git stash (工作现场“储藏”起来)
+3、git checkout master（master分支上修复)
+4、git checkout -b bug
+5、修改，add,commit
+6、git checkout master，git merge --no-ff -m "merged bug" bug，git branch -d bug
+7、git checkout dev
+
+8、git stash list
+恢复指定的stash：git stash apply stash@{0}
+
+9、git stash pop
+
+10、git add,commit，merge(合并dev到master主分支上)
+
+----------新功能，add,commit后，需要merge时，然后去除----------------------------
+
+新功能：新建分支，完成，合并，删除分支
+
+丢弃没有合并的分支：git branch -D <name>
+
+-----------------------------------------------------------------------------------
+
+新建标签：git tag v1.0 （默认为HEAD）
+删除标签: git tag -d v0.1
+
+查看所有标签：git tag
+
+指定标签信息：git tag -a <tagname> -m "blablabla..."
+
+用PGP签名标签：git tag -s <tagname> -m "blablabla..."
+
+说明文字:git show <tagname>
+
+标签到远程:   git push origin v1.0
+推送全部标签: git push origin --tags
+
+删除远程标签：
+1、git tag -d v0.9 （先删本地）
+2、git push origin :refs/tags/v0.9
+
+----------------------------------GitHub------------------------------------
+
+1、Fork后拥有读写权限；
+
+2、给官方仓库来贡献代码：pull request
+
+--------------------------------------------------------------------
+Git显示颜色，命令输出更醒目：
+
+$ git config --global color.ui true
+
+---------------------------------Git配置简写------------------------------
+
+git config --global alias.st status
+$ git config --global alias.co checkout
+$ git config --global alias.ci commit
+$ git config --global alias.br branch
+git config --global alias.last 'log -1'
+
+
+$ git reset HEAD test.py
+$ git config --global alias.unstage 'reset HEAD'
+
+--global 针对当前用户起作用的，如果不加，那只针对当前的仓库起作用
+
+配置文件： 每个仓库  .git/config
+
+
+----------------------------忽略某些文件时------------------------------------
+
+编写.gitignore，放到版本库里；
+
+# Windows:
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Python:
+*.py[cod]
+*.so
+*.egg
+*.egg-info
+dist
+build
+
+# My configurations:
+db.ini
+deploy_key_rsa
+
+----------------------------------------------------------
+
+搭建服务器
+
+要像SVN那样变态地控制权限，用Gitolite。
+
+http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000
+
+
