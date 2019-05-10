@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
 import com.i.designpattern.R;
 
 public class RxJavaActivity extends AppCompatActivity implements UserView {
@@ -60,7 +59,6 @@ public class RxJavaActivity extends AppCompatActivity implements UserView {
     public void updateUI(Joke joke) {
         mNameTV.setText(joke.getAuthor());
         mAgeTV.setText(joke.getContent());
-        Glide.with(this).load(joke.getPicUrl()).into(mImageView);
     }
 
     @Override
