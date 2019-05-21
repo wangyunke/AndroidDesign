@@ -1,7 +1,7 @@
 package com.i.designpattern.templet;
 
 /**
- * Copyright (C) 2019, Xiaomi Inc. All rights reserved.
+ * 模板方法模式
  */
 public abstract class Car {
 
