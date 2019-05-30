@@ -3,7 +3,7 @@ package com.i.designpattern.activity;
 import android.os.Bundle;
 
 import com.i.designpattern.R;
-import com.i.designpattern.templet.UseCarInstance;
+import com.i.designpattern.composite.FileKillInstance;
 
 public class MainActivity extends BaseActivity {
 
@@ -16,6 +16,9 @@ public class MainActivity extends BaseActivity {
     }
 
     public void process() {
-        UseCarInstance.useCar();
+//        UseCarInstance.useCar(); //模板方法
+
+        FileKillInstance.kill(); //组合模式
+
     }
 }
