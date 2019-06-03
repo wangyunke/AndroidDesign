@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import com.i.designpattern.R;
 import com.i.designpattern.composite.FileKillInstance;
+import com.i.designpattern.observer.CaseInstance;
 
 public class MainActivity extends BaseActivity {
 
@@ -17,8 +18,8 @@ public class MainActivity extends BaseActivity {
 
     public void process() {
 //        UseCarInstance.useCar(); //模板方法
-
-        FileKillInstance.kill(); //组合模式
+//        FileKillInstance.kill(); //组合模式
+        CaseInstance.use(); //观察者模式-发布订阅模式
 
     }
 }
