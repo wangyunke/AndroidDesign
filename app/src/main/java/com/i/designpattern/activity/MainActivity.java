@@ -3,8 +3,7 @@ package com.i.designpattern.activity;
 import android.os.Bundle;
 
 import com.i.designpattern.R;
-import com.i.designpattern.composite.FileKillInstance;
-import com.i.designpattern.observer.CaseInstance;
+import com.i.designpattern.pubsub.PubSubInstance;
 
 public class MainActivity extends BaseActivity {
 
@@ -19,7 +18,8 @@ public class MainActivity extends BaseActivity {
     public void process() {
 //        UseCarInstance.useCar(); //模板方法
 //        FileKillInstance.kill(); //组合模式
-        CaseInstance.use(); //观察者模式-发布订阅模式
+//        CaseInstance.use(); //观察者模式
+        PubSubInstance.use(); //发布订阅模式
 
     }
 }

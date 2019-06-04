@@ -6,7 +6,6 @@ import java.util.List;
 /**
  * Created by ykw on 2016/6/27.
  * 观察者模式
- * 模式：register订阅  notifyObservers发布
  */
 public class Observerable implements IObserverable {
     List<IObserver> list = new ArrayList<>();
