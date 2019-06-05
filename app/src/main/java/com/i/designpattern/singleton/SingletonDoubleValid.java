@@ -7,16 +7,20 @@ public class SingletonDoubleValid {
     private SingletonDoubleValid() {
     }
 
-    private volatile  static SingletonDoubleValid sInstance;
+    private volatile static SingletonDoubleValid sInstance;
 
     public static SingletonDoubleValid getInstance() {
-        if(sInstance==null){
-            synchronized (SingletonDoubleValid.class){
-                if(sInstance==null) {
+        if (sInstance == null) {
+            synchronized (SingletonDoubleValid.class) {
+                if (sInstance == null) {
                     sInstance = new SingletonDoubleValid();
                 }
             }
         }
         return sInstance;
+    }
+
+    public void function() {
+        System.out.println("双重校验");
     }
 }
