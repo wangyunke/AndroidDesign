@@ -4,10 +4,10 @@ package com.i.designpattern.proxy;
  * Created by ykw on 2016/6/24.
  * 王婆
  */
-public class ProxyHandler implements IAction{
+public class ProxyAction implements IAction{
     IAction action;
 
-    public ProxyHandler(IAction action) {
+    public ProxyAction(IAction action) {
         this.action = action;
     }
 
