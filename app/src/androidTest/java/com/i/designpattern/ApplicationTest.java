@@ -6,4 +6,5 @@ package com.i.designpattern;
 public class ApplicationTest {
     public ApplicationTest() {
     }
+
 }

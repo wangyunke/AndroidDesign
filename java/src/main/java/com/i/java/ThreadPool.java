@@ -1,6 +1,7 @@
 package com.i.java;
 
 import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.LinkedBlockingDeque;
 import java.util.concurrent.RejectedExecutionHandler;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
@@ -8,7 +9,8 @@ import java.util.concurrent.TimeUnit;
 public class ThreadPool {
 
     public static void main(String[] args) {
-        exec();
+//        exec();
+        testThreadPool();
     }
 
     private static void exec() {
@@ -37,6 +39,32 @@ public class ThreadPool {
                 }
             };
             executor.execute(run);
+        }
+    }
+
+    public static void testThreadPool() {
+        ThreadPoolExecutor executor = new ThreadPoolExecutor(
+                0,
+                1000,
+                20,
+                TimeUnit.SECONDS,
+                new ArrayBlockingQueue<>(100),
+                new RejectedExecutionHandler() {
+                    @Override
+                    public void rejectedExecution(Runnable r, ThreadPoolExecutor executor) {
+                        System.out.println("RejectedExecutionHandler wangyunke- = " + r);
+                    }
+                });
+
+        for (int i = 0; i < 50; i++) {
+            executor.execute(() -> {
+                try {
+                    Thread.sleep(500);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                System.out.println(Thread.currentThread().toString());
+            });
         }
     }
 }

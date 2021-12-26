@@ -3,6 +3,7 @@
     package="com.i.designpattern">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="carcenter.permission.BATTERY_CHARGE_SERVICE" />
 
     <application
         android:allowBackup="true"
@@ -11,14 +12,39 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".activity.MainActivity">
+        <activity
+            android:name=".activity.MainActivity"
+            android:taskAffinity="com.i.designpattern">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity android:name=".activity.KnowledgeActivity" />
+
+        <!--<activity
+            android:name=".activity.MainActivity"
+            android:taskAffinity="com.i.designpattern" />-->
+
+
+        <activity
+            android:name=".activity.taskStack.DetailActivity"
+            android:taskAffinity="com.i.designpattern"
+             />
+
+        <!--<activity
+            android:name=".activity.taskStack.Task2CActivity"
+            android:taskAffinity="com.i.newTask"
+            android:process="com.i.newTask" />
+
+        <activity
+            android:name=".activity.taskStack.Task2DActivity"
+            android:taskAffinity="com.i.newTask"
+            android:process="com.i.newTask"/>-->
+
+
 
         <service
             android:name=".activity.MainService"
