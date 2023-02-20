@@ -1,15 +1,12 @@
 package com.i.designpattern.activity;
 
-import android.app.Service;
-import android.content.ComponentName;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 
 import com.i.designpattern.R;
-import com.i.designpattern.activity.taskStack.DetailActivity;
+import com.i.service.WindowViewService;
 
 public class MainActivity extends BaseActivity {
 
@@ -29,17 +26,17 @@ public class MainActivity extends BaseActivity {
         LayoutInflater.Factory factory1=getLayoutInflater().getFactory();
         LayoutInflater.Factory factory2=getLayoutInflater().getFactory2();
 
-        Log.i("wangyunke", factory1==null);
-        Log.i("wangyunke", factory2.toString());
+//        Log.i("wangyunke", factory1==null);
+//        Log.i("wangyunke", factory2.toString());
     }
 
     public void startDetail(View view){
-//        Intent intent = new Intent(this, DetailActivity.class);
-//        startActivity(intent);
-
-        Intent intent = new Intent();
-        intent.setComponent(new ComponentName("com.didichuxing.diia.carcenter","com.didichuxing.diia.carcenter.battery.BatteryChargeService"));
+        Intent intent = new Intent(this, WindowViewService.class);
         startService(intent);
+
+//        Intent intent = new Intent();
+//        intent.setComponent(new ComponentName("com.didichuxing.diia.carcenter","com.didichuxing.diia.carcenter.battery.BatteryChargeService"));
+//        startService(intent);
     }
 
     public void process() {

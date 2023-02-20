@@ -1,4 +1,7 @@
-apply plugin: 'com.android.application'
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+}
 
 android {
     compileSdkVersion 30
@@ -40,6 +43,7 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
+//    implementation 'androidx.core:core-ktx:+'
     testImplementation 'junit:junit:4.12'
     implementation 'androidx.appcompat:appcompat:1.3.0'
     implementation 'io.reactivex:rxjava:1.0.14'

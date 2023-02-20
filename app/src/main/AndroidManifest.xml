@@ -4,6 +4,9 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="carcenter.permission.BATTERY_CHARGE_SERVICE" />
+    <uses-permission android:name="android.permission.SYSTEM_OVERLAY_WINDOW" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.TYPE_APPLICATION"/>
 
     <application
         android:allowBackup="true"
@@ -50,6 +53,8 @@
             android:name=".activity.MainService"
             android:exported="false" />
         <service android:name=".activity.MainIntentService" />
+
+        <service android:name="com.i.service.WindowViewService"/>
 
         <activity android:name=".activity.BaseActivity" />
 
