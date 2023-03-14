@@ -10,12 +10,12 @@ public class CaseInstance {
         Observer observer2 = new Observer("activity2");
         Observer observer3 = new Observer("activity3");
 
-        Observerable observerable = new Observerable();
-        observerable.register(observer1);
-        observerable.register(observer2);
-        observerable.register(observer3);
+        ObserverOwner owner = new ObserverOwner();
+        owner.addObserver(observer1);
+        owner.addObserver(observer2);
+        owner.addObserver(observer3);
 
-        observerable.notifyObservers();
+        owner.notifyObservers();
     }
 
 }
