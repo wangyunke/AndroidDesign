@@ -2,10 +2,12 @@ package com.i.designpattern.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 
 import com.i.designpattern.R;
+import com.i.hook.Catcher;
 import com.i.service.WindowViewService;
 
 public class MainActivity extends BaseActivity {
@@ -17,6 +19,16 @@ public class MainActivity extends BaseActivity {
 
         LayoutInflater.from(this);
 
+        onClick();
+    }
+
+    private void onClick() {
+        findViewById(R.id.origin_view).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.i(Catcher.TAG, "TextView/Button/ImageView等原生view被点击了");
+            }
+        });
     }
 
     @Override
