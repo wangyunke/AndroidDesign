@@ -16,7 +16,7 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name=".activity.MainActivity"
+            android:name="com.i.view.PaintActivity"
             android:taskAffinity="com.i.designpattern">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,7 +27,7 @@
 
         <activity android:name=".activity.KnowledgeActivity" />
 
-        <!--<activity
+       <!-- <activity
             android:name=".activity.MainActivity"
             android:taskAffinity="com.i.designpattern" />-->
 
