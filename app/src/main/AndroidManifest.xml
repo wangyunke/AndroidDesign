@@ -16,7 +16,7 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name="com.i.view.PaintActivity"
+            android:name="com.i.compose.KotlinActivity"
             android:taskAffinity="com.i.designpattern">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
