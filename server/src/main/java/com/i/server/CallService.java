@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.IBinder;
 import android.os.RemoteException;
+import android.util.Log;
 import android.view.Window;
 import android.view.WindowManager;
 
@@ -31,7 +32,12 @@ public class CallService extends Service {
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
-        return iBinder;
+        DeathRecipient recipient = new DeathRecipient(intent.getStringExtra("packageName"));
+        try {
+            iBinder.linkToDeath(recipient, 0);
+        } catch (RemoteException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     private IBinder iBinder = new ICall.Stub(){
@@ -41,4 +47,17 @@ public class CallService extends Service {
 
         }
     };
+
+    private static class DeathRecipient implements IBinder.DeathRecipient {
+        private final String client;
+
+        public DeathRecipient(String clientId) {
+            client = clientId;
+        }
+
+        @Override
+        public void binderDied() {
+            Log.i("CallService", "death client = " + client);
+        }
+    }
 }
