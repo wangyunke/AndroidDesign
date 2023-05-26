@@ -17,7 +17,8 @@
 
         <activity
             android:name="com.i.compose.KotlinActivity"
-            android:taskAffinity="com.i.designpattern">
+            android:taskAffinity="com.i.designpattern"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
