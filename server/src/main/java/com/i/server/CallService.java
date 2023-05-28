@@ -38,6 +38,7 @@ public class CallService extends Service {
         } catch (RemoteException e) {
             throw new RuntimeException(e);
         }
+        return iBinder;
     }
 
     private IBinder iBinder = new ICall.Stub(){

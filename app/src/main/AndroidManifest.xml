@@ -16,7 +16,7 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name="com.i.compose.KotlinActivity"
+            android:name="com.i.compose.ComposeActivity"
             android:taskAffinity="com.i.designpattern"
             android:exported="true">
             <intent-filter>
