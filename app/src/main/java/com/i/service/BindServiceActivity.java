@@ -7,8 +7,6 @@ import android.os.Bundle;
 import android.os.IBinder;
 import android.os.RemoteException;
 import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
 
 import com.i.aidl.ICall;
 import com.i.designpattern.R;
@@ -19,11 +17,16 @@ public class BindServiceActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_window_view);
+        onClick();
+//        bindSerService();
+    }
 
-        LayoutInflater.from(this);
-
-        bindSerService();
+    private void onClick() {
+        findViewById(R.id.button).setOnClickListener(v -> {
+            Intent intent = new Intent(this, WindowViewService.class);
+            startService(intent);
+        });
     }
 
     private void bindSerService() {

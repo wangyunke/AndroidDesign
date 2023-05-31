@@ -5,6 +5,7 @@
 /local.properties
 .DS_Store
 /build
+/server/build/
 /captures
 /gradle
 gradlew
