@@ -12,7 +12,6 @@ import androidx.core.content.ContextCompat;
 
 import com.i.designpattern.R;
 import com.i.designpattern.activity.BaseActivity;
-import com.i.view.TrackView;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationHandler;
@@ -32,8 +31,6 @@ public class PermissionActivity extends BaseActivity {
 
 
         onClick();
-
-        PackageManager manager = getPackageManager();
         startMonitoring();
     }
 
@@ -49,7 +46,6 @@ public class PermissionActivity extends BaseActivity {
                 String[] perms = {Manifest.permission.READ_CALL_LOG, Manifest.permission.RECORD_AUDIO, Manifest.permission.CAMERA};
                 ActivityCompat.requestPermissions(PermissionActivity.this, perms, 1);
             }
-
         });
     }
 
