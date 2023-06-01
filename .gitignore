@@ -6,6 +6,7 @@
 .DS_Store
 /build
 /server/build/
+/java/build/
 /captures
 /gradle
 gradlew
