@@ -1,4 +1,4 @@
-package com.i.Utils;
+package com.i.utils;
 
 import androidx.annotation.NonNull;
 

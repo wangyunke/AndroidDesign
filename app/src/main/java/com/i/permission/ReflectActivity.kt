@@ -8,31 +8,73 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.activity.ComponentActivity
-import androidx.core.app.ActivityCompat
 import com.i.designpattern.R
+import java.io.BufferedReader
+import java.io.BufferedWriter
+import java.io.IOException
+import java.io.InputStreamReader
+import java.io.OutputStreamWriter
 import java.lang.reflect.InvocationHandler
 import java.lang.reflect.Proxy
+import java.net.ServerSocket
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class ReflectActivity : ComponentActivity() {
     private val TAG = "ReflectActivity"
+    private val mIOScope = CoroutineScope(Dispatchers.IO)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_permission)
 
         onClick()
-        registerPermissionListener(this)
+//        registerPermissionListener(this)
     }
 
     private fun onClick() {
         findViewById<View>(R.id.requestPermission).setOnClickListener { v: View? ->
             //没有权限，提示获取权限
-            val perms = arrayOf(
-                Manifest.permission.READ_CALL_LOG,
-                Manifest.permission.RECORD_AUDIO,
-                Manifest.permission.CAMERA
-            )
-            ActivityCompat.requestPermissions(this, perms, 1)
+//            val perms = arrayOf(
+//                Manifest.permission.READ_CALL_LOG,
+//                Manifest.permission.RECORD_AUDIO,
+//                Manifest.permission.CAMERA
+//            )
+//            ActivityCompat.requestPermissions(this, perms, 1)
+
+            registerServerSocket()
+        }
+    }
+
+    fun registerServerSocket() {
+        val SERVERIP = " 192.168.50.255"
+        val receivePort = 6942
+        try {
+            val serverSocket = ServerSocket(receivePort)
+            while (true) {
+                val socket = serverSocket.accept()
+                Log.i(TAG, "socket isConnected=${socket.isConnected}")
+                try {
+                    val inReader = BufferedReader(InputStreamReader(socket.getInputStream()))
+                    val str = inReader.readLine()
+                    Log.d(TAG, "client send data=$str")
+
+                    val bw = BufferedWriter(OutputStreamWriter(socket.getOutputStream()))
+                    bw.write("server data return data to client")
+                    bw.flush()
+
+                    inReader.close()
+                    bw.close()
+                } catch (e: Exception) {
+                    Log.e(TAG, "registerServerSocket$e")
+                } finally {
+                    // client.close();
+                    Log.d(TAG, "close")
+                }
+            }
+        } catch (e: IOException) {
+            Log.e(TAG, "IOException$e")
         }
     }
 

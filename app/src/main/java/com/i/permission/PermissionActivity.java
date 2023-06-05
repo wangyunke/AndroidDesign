@@ -13,10 +13,12 @@ import androidx.core.content.ContextCompat;
 import com.i.designpattern.R;
 import com.i.designpattern.activity.BaseActivity;
 
+import java.io.BufferedReader;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
+import java.net.ServerSocket;
 import java.util.Arrays;
 import java.util.Optional;
 import java.util.function.Predicate;
@@ -47,6 +49,37 @@ public class PermissionActivity extends BaseActivity {
                 ActivityCompat.requestPermissions(PermissionActivity.this, perms, 1);
             }
         });
+    }
+
+    fun registerServerSocket() {
+        val SERVERIP = " 192.168.50.255"
+        val receivePort = 6942;
+        try {
+            ServerSocket serverSocket = new ServerSocket(receivePort);
+            while (true) {
+                val socket = serverSocket.accept();
+                Log.i(TAG, "socket isConnected=${socket.isConnected}")
+                try {
+                    BufferedReader inReader = BufferedReader(InputStreamReader(socket.getInputStream()))
+                    String str = inReader.readLine()
+                    Log.d(TAG, "client send data=$str")
+
+                    val bw = BufferedWriter(OutputStreamWriter(socket.getOutputStream()))
+                    bw.write("server data return data to client")
+                    bw.flush()
+
+                    inReader.close()
+                    bw.close()
+                } catch (e: Exception) {
+                    Log.e(TAG, "registerServerSocket$e")
+                } finally {
+                    // client.close();
+                    Log.d(TAG, "close")
+                }
+            }
+        } catch (e: IOException) {
+            Log.e(TAG, "IOException$e")
+        }
     }
 
     @Override
