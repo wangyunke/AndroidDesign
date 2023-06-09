@@ -14,4 +14,7 @@ public interface ICommond {
     Lock iLock=new ReentrantLock();
 
     ConditionVariable iConditionVariable=new ConditionVariable();
+
+    abstract class AbsInnerClass{}
 }
+

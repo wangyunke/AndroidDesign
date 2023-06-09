@@ -1,6 +1,7 @@
 package com.i.designpattern.lock;
 
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -23,6 +24,22 @@ public class LockActivity extends AppCompatActivity {
 
         entity1.start();
         entity2.start();
+
+    }
+
+    private void generateInnerClass(){
+        View.OnClickListener listener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        };
+
+        ICommond commond = new ICommond() {
+        };
+
+        ICommond.AbsInnerClass innerClass = new ICommond.AbsInnerClass() {
+        };
 
     }
 }
