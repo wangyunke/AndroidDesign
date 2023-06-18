@@ -4,6 +4,7 @@
     android:layout_height="match_parent">
 
     <RelativeLayout
+        android:id="@+id/rl"
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:background="@color/colorAccent">
@@ -24,4 +25,13 @@
             android:layout_below="@id/pic"
             android:layout_centerInParent="true"/>
     </RelativeLayout>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="启动协程"
+        android:textSize="30sp"
+        android:layout_below="@id/rl"/>
+
 </RelativeLayout>

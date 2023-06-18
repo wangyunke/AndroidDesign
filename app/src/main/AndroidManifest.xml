@@ -23,7 +23,7 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name="com.i.permission.ReflectActivity"
+            android:name="com.i.kotlin.MainActivity"
             android:taskAffinity="com.i.designpattern"
             android:exported="true">
             <intent-filter>
