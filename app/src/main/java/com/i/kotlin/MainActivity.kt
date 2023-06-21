@@ -5,7 +5,10 @@ import android.widget.TextView
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import com.i.designpattern.R
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 class MainActivity: AppCompatActivity() {
     private val mViewModel by viewModels<MainViewModel>()
@@ -17,11 +20,21 @@ class MainActivity: AppCompatActivity() {
 
         extensionFun()
         launchCoroutine()
+        launchInActivity()
     }
 
     private fun launchCoroutine() {
         findViewById<TextView>(R.id.button).setOnClickListener {
             mViewModel.request()
+        }
+    }
+
+    private fun launchInActivity(){
+        lifecycleScope.launch {
+            while (true){
+                delay(2000)
+                println("{闭包操作}跟随activity生命周期而变化")
+            }
         }
     }
 
