@@ -45,6 +45,15 @@ class MainActivity: AppCompatActivity() {
 
         val value1 = (String::replaceA)("ai qing niao")
         println(value1)
+
+        fun1 {null}
+        fun2 { null }
+        fun3 { i, s ->
+            println(i)
+            println(s)
+        }
+        fun33 { i -> println(i) }
+        fun4()
     }
 
 }
