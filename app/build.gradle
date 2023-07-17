@@ -6,6 +6,7 @@ plugins {
 
 android {
     compileSdkVersion 33
+    namespace 'com.i.designpattern'
 
     defaultConfig {
         applicationId "com.i.designpattern"
@@ -48,6 +49,11 @@ android {
     buildFeatures {
         viewBinding true
         buildConfig true
+        aidl true
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
     }
 }
 
