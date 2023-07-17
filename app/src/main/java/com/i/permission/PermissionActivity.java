@@ -51,37 +51,6 @@ public class PermissionActivity extends BaseActivity {
         });
     }
 
-    fun registerServerSocket() {
-        val SERVERIP = " 192.168.50.255"
-        val receivePort = 6942;
-        try {
-            ServerSocket serverSocket = new ServerSocket(receivePort);
-            while (true) {
-                val socket = serverSocket.accept();
-                Log.i(TAG, "socket isConnected=${socket.isConnected}")
-                try {
-                    BufferedReader inReader = BufferedReader(InputStreamReader(socket.getInputStream()))
-                    String str = inReader.readLine()
-                    Log.d(TAG, "client send data=$str")
-
-                    val bw = BufferedWriter(OutputStreamWriter(socket.getOutputStream()))
-                    bw.write("server data return data to client")
-                    bw.flush()
-
-                    inReader.close()
-                    bw.close()
-                } catch (e: Exception) {
-                    Log.e(TAG, "registerServerSocket$e")
-                } finally {
-                    // client.close();
-                    Log.d(TAG, "close")
-                }
-            }
-        } catch (e: IOException) {
-            Log.e(TAG, "IOException$e")
-        }
-    }
-
     @Override
     public void onRequestPermissionsResult(int permsRequestCode, String[] permissions, int[] grantResults){
         switch(permsRequestCode){
