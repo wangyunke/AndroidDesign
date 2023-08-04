@@ -11,8 +11,24 @@ public class Revert {
 //        String result = revertEasy2(value);
 //        System.out.println("result=" + result);
 
-        String result = revertDifficult(value);
+        String result = revertQi(value);
         System.out.println("result=" + result);
+    }
+
+    public static String revertQi(String value) {
+        String[] chars = value.split(" ");
+        int len = chars.length;
+        for (int i = 0; i < len/2; i++) {
+            int pos = len - i - 1;
+            String tmp = chars[i];
+            chars[i] = chars[pos];
+            chars[pos] = tmp;
+        }
+        StringBuilder sb = new StringBuilder();
+        for (String ch : chars) {
+            sb.append(ch).append(" ");
+        }
+        return sb.toString().trim();
     }
 
     public static String revertDifficult(String value) {
