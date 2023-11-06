@@ -3,6 +3,7 @@ package com.i;
 import android.app.Application;
 import android.content.Context;
 import android.os.Handler;
+import android.os.Looper;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -11,11 +12,15 @@ import androidx.fragment.app.FragmentController;
 import androidx.fragment.app.FragmentHostCallback;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.i.anr.LooperPrinter;
+
 public class MyApplication extends Application {
 
     @Override
     public void onCreate() {
         super.onCreate();
+
+        Looper.getMainLooper().setMessageLogging(new LooperPrinter());
     }
 
     void createFragment(Fragment fragment, int viewId){

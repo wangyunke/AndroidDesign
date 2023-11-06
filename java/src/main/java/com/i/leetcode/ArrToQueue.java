@@ -25,7 +25,7 @@ public class ArrToQueue {
         int deQueue() {
             if (isEmpty()) {
                 Log.error("queue empty");
-                return -1;
+                throw new RuntimeException("queue empty");
             } else {
                 return arr[frontIndex++];
             }
