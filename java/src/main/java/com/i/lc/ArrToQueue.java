@@ -1,4 +1,4 @@
-package com.i.leetcode;
+package com.i.lc;
 
 import jdk.internal.org.jline.utils.Log;
 
