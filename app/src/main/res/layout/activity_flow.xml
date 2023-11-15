@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/cold"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:text="cold_flow"/>
+
+    <Button
+        android:id="@+id/hot1"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:text="hot1_flow"/>
+
+    <Button
+        android:id="@+id/hot2"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:text="hot2_flow"/>
+
+    <Button
+        android:id="@+id/update1"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:text="update_1"/>
+
+    <Button
+        android:id="@+id/update_2"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:text="update_2"/>
+
+</LinearLayout>

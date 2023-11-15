@@ -22,7 +22,7 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name="com.i.kotlin.MainActivity"
+            android:name="com.i.designpattern.flow.FlowActivity"
             android:taskAffinity="com.i.designpattern"
             android:exported="true">
             <intent-filter>
