@@ -2,6 +2,7 @@ package com.i.permission;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.util.Log;
 
 import androidx.core.content.ContextCompat;
@@ -68,6 +69,17 @@ public class PermissionUtils {
             int result = ContextCompat.checkSelfPermission(context, permission);
             Log.e("Permissions", "checkPermissions: " + permission + "->" + result);
         }
+    }
+
+    public static boolean checkPermissions(Context context, String[] permissions) {
+        for (String permission : permissions) {
+            int result = ContextCompat.checkSelfPermission(context, permission);
+            Log.e("Permissions", "checkPermissions: " + permission + "->" + result);
+            if(result == PackageManager.PERMISSION_DENIED){
+                return false;
+            }
+        }
+        return true;
     }
 
     private void createOnPermissionsChangeListener() throws ClassNotFoundException {
