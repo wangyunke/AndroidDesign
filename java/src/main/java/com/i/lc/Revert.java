@@ -11,8 +11,25 @@ public class Revert {
 //        String result = revertEasy2(value);
 //        System.out.println("result=" + result);
 
-        String result = revertQi(value);
-        System.out.println("result=" + result);
+//        String result = revertQi(value);
+//        System.out.println("result=" + result);
+
+        int[] arr = {3,0,1};
+        int res=missingNumber(arr);
+        System.out.println("result=" + res);
+    }
+
+    public static int missingNumber(int[] nums) {
+        if(nums==null){
+            return 0;
+        }
+        int len=nums.length;
+        int sum=((len)*(len+1))/2;
+
+        for (int num : nums) {
+            sum -= num;
+        }
+        return sum;
     }
 
     public static String revertQi(String value) {
