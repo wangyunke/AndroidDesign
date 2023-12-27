@@ -34,4 +34,10 @@
         android:layout_height="50dp"
         android:text="update_2"/>
 
+    <Button
+        android:id="@+id/update_obj"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:text="update_obj"/>
+
 </LinearLayout>

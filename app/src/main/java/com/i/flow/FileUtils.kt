@@ -1,4 +1,4 @@
-package com.i.designpattern.flow
+package com.i.flow
 
 import android.content.ContentUris
 import android.content.Context

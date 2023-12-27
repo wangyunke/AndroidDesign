@@ -1,4 +1,4 @@
-package com.i.designpattern.flow
+package com.i.flow
 
 import android.os.Bundle
 import android.util.Log
@@ -56,6 +56,15 @@ class FlowActivity : AppCompatActivity() {
         }
         mBinding.update2.setOnClickListener {
             viewModel.update("2")
+        }
+
+        lifecycleScope.launch {
+            viewModel.stateObj.collect {
+                Log.i("flow", "collect stateObj=${it.name}, ${it.age}")
+            }
+        }
+        mBinding.updateObj.setOnClickListener {
+            viewModel.updateObj()
         }
     }
 

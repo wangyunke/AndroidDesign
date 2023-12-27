@@ -36,7 +36,7 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name="com.i.permission.Permission33Activity"
+            android:name="com.i.flow.FlowActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
