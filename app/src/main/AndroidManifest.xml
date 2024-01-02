@@ -2,31 +2,39 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.i.designpattern">
-<!--    android:sharedUserId="android.uid.system"-->
+    <!--    android:sharedUserId="android.uid.system"-->
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="carcenter.permission.BATTERY_CHARGE_SERVICE" />
     <uses-permission android:name="android.permission.SYSTEM_OVERLAY_WINDOW" />
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
-    <uses-permission android:name="android.permission.TYPE_APPLICATION"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.TYPE_APPLICATION" />
 
     <uses-permission android:name="android.permission.READ_CALL_LOG" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.CAMERA" />
 
-    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES"/>
-    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO"/>
-    <uses-permission android:name="android.permission.READ_MEDIA_AUDIO"/>
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
+    <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" />
 
-    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE"
+    <uses-permission
+        android:name="android.permission.MANAGE_EXTERNAL_STORAGE"
         tools:ignore="ScopedStorage" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
+    <uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
         android:maxSdkVersion="32" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
         android:maxSdkVersion="32"
         tools:ignore="ScopedStorage" />
     <uses-permission android:name="android.permission.WRITE_EXTERNA" />
 
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.TTS_SERVICE"/>
+        </intent>
+    </queries>
 
     <application
         android:allowBackup="true"
@@ -38,24 +46,23 @@
         <activity
             android:name="com.i.flow.FlowActivity"
             android:exported="true">
-            <intent-filter>
+            <!--<intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            </intent-filter>-->
         </activity>
 
         <activity android:name=".activity.KnowledgeActivity" />
 
-       <!-- <activity
-            android:name=".activity.MainActivity"
-            android:taskAffinity="com.i.designpattern" />-->
+        <!-- <activity
+             android:name=".activity.MainActivity"
+             android:taskAffinity="com.i.designpattern" />-->
 
 
         <activity
             android:name=".activity.taskStack.DetailActivity"
-            android:taskAffinity="com.i.designpattern"
-             />
+            android:taskAffinity="com.i.designpattern" />
 
         <!--<activity
             android:name=".activity.taskStack.Task2CActivity"
@@ -68,13 +75,21 @@
             android:process="com.i.newTask"/>-->
 
 
+        <activity
+            android:name="com.i.tts.TTSActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
         <service
             android:name=".activity.MainService"
             android:exported="false" />
         <service android:name=".activity.MainIntentService" />
 
-        <service android:name="com.i.service.WindowViewService"/>
+        <service android:name="com.i.service.WindowViewService" />
 
         <activity android:name=".activity.BaseActivity" />
 
