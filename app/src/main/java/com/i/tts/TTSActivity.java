@@ -1,6 +1,8 @@
 package com.i.tts;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.SystemClock;
 import android.speech.tts.TextToSpeech;
 import android.util.Log;
 import android.widget.Button;
@@ -47,6 +49,18 @@ public class TTSActivity extends AppCompatActivity implements TextToSpeech.OnIni
         speechBtn.setOnClickListener(v -> {
             //播放
             textToSpeech.speak(inputEt.getText().toString(), TextToSpeech.QUEUE_ADD, null);
+
+            /**
+             * 系统开机后的运行时间，每次车机重启后从0开始
+             * handler.postDelayed用的这个方法，所以改系统时间不影响消息的延迟
+             */
+            long uptime = SystemClock.uptimeMillis();
+
+            /**
+             * 系统设置时间，可更改
+             */
+            long currentTime = System.currentTimeMillis();
+            Log.d(TAG, "uptime="+uptime+",currentTime="+currentTime);
         });
     }
 
