@@ -17,3 +17,4 @@ rootProject.name = "AndroidDesign"
 include ':app'
 include ':java'
 include ':server'
+include ':lib_network'

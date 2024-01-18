@@ -10,6 +10,7 @@ import android.os.Environment
 import android.provider.DocumentsContract
 import android.provider.MediaStore
 import android.text.TextUtils
+import android.util.Log
 import org.jetbrains.annotations.Nullable
 import org.json.JSONException
 import org.json.JSONObject
@@ -58,6 +59,31 @@ object FileUtils {
         return if (!dir.exists()) {
             dir.mkdirs()
         } else true
+    }
+
+    fun createFile(filePath: String): Boolean {
+        val file = File(filePath);
+        if (file.exists()) {
+            return true;
+        }
+
+        val pareFile = file.parentFile
+        if (pareFile != null && !pareFile.exists()) {
+            Log.d(TAG, "creating parent directory...");
+            if (!pareFile.mkdirs()) {
+                Log.e(TAG, "created parent directory failed.");
+                return false;
+            }
+        }
+        try {
+            if (file.createNewFile()) {
+                Log.i(TAG, "create file [ $filePath ] success");
+                return true;
+            }
+        } catch (e: IOException) {
+            Log.e(TAG, "create file [ $filePath ] failed");
+        }
+        return false;
     }
 
     /**

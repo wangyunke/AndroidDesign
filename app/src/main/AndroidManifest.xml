@@ -76,7 +76,7 @@
 
 
         <activity
-            android:name="com.i.tts.TTSActivity"
+            android:name="com.i.tts.VideoActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
