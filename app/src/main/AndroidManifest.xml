@@ -76,7 +76,7 @@
 
 
         <activity
-            android:name="com.i.tts.VideoActivity"
+            android:name="com.i.voice.VoiceInteractionActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -1,7 +1,6 @@
-package com.i.tts;
+package com.i.voice;
 
 import android.os.Bundle;
-import android.os.Handler;
 import android.os.SystemClock;
 import android.speech.tts.TextToSpeech;
 import android.util.Log;

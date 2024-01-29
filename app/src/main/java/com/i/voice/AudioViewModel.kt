@@ -1,4 +1,4 @@
-package com.i.tts
+package com.i.voice
 
 import android.media.MediaPlayer
 import androidx.lifecycle.ViewModel
@@ -13,7 +13,7 @@ import java.io.BufferedInputStream
 import java.io.File
 import java.io.FileOutputStream
 
-class VideoViewModel : ViewModel() {
+class AudioViewModel : ViewModel() {
     companion object {
         const val TAG = "SceneViewModel"
     }
