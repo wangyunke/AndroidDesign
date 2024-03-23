@@ -41,11 +41,12 @@ public class CallService extends Service {
         return iBinder;
     }
 
-    private IBinder iBinder = new ICall.Stub(){
+    private final IBinder iBinder = new ICall.Stub(){
 
         @Override
-        public void callBack(int a) throws RemoteException {
-
+        public void callBack(int a) {
+            int pid = getCallingPid(); //client process id
+            int uid = getCallingUid(); // client user id
         }
     };
 
