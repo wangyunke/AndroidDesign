@@ -40,4 +40,10 @@
         android:layout_height="50dp"
         android:text="update_obj"/>
 
+    <Button
+        android:id="@+id/combine"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:text="combine"/>
+
 </LinearLayout>

@@ -46,11 +46,11 @@
         <activity
             android:name="com.i.flow.FlowActivity"
             android:exported="true">
-            <!--<intent-filter>
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>-->
+            </intent-filter>
         </activity>
 
         <activity android:name=".activity.KnowledgeActivity" />
@@ -78,10 +78,10 @@
         <activity
             android:name="com.i.voice.VoiceInteractionActivity"
             android:exported="true">
-            <intent-filter>
+           <!-- <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            </intent-filter>-->
         </activity>
 
         <service

@@ -2,15 +2,17 @@ package com.i.flow
 
 import android.os.Bundle
 import android.util.Log
-import android.view.MotionEvent
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.i.designpattern.databinding.ActivityFlowBinding
-import com.i.designpattern.databinding.ActivityMainBinding
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.asFlow
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 
 class FlowActivity : AppCompatActivity() {
     private val TAG = "MainActivity"
@@ -66,6 +68,42 @@ class FlowActivity : AppCompatActivity() {
         mBinding.updateObj.setOnClickListener {
             viewModel.updateObj()
         }
+
+        mBinding.combine.setOnClickListener {
+            runBlocking { combine()  }
+        }
+
+    }
+
+    private suspend fun combine(){
+        val flow1= flow {
+            val data = fetchData1()
+            println(data)
+            emit(data)
+        }
+        val flow2= flow {
+            val data = fetchData2()
+            println(data)
+            emit(data)
+        }
+
+        val resultFlow = flow2.combine(flow1){ s1: String, s2: String ->
+            println("combine")
+            "combine=$s1, $s2"
+        }
+        resultFlow.collect {
+            println("collect: $it")
+        }
+    }
+
+    private suspend fun fetchData1(): String {
+        delay(1000)
+        return "fetchData1"
+    }
+
+    private suspend fun fetchData2(): String {
+        delay(5000)
+        return "fetchData2"
     }
 
 }
