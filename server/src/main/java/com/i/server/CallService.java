@@ -20,12 +20,11 @@ public class CallService extends Service {
     public void onCreate() {
         super.onCreate();
 
-        Dialog dialog = new Dialog(this);
-        dialog.show();
+//        Dialog dialog = new Dialog(this);
+//        dialog.show();
 
-        WindowManager wm = (WindowManager) getSystemService(Context.WINDOW_SERVICE);
-
-        Window window = dialog.getWindow();
+//        WindowManager wm = (WindowManager) getSystemService(Context.WINDOW_SERVICE);
+//        Window window = dialog.getWindow();
 //        window.setContentView();
     }
 
@@ -41,12 +40,20 @@ public class CallService extends Service {
         return iBinder;
     }
 
-    private final IBinder iBinder = new ICall.Stub(){
+    private final IBinder iBinder = new ICall.Stub() {
 
         @Override
         public void callBack(int a) {
             int pid = getCallingPid(); //client process id
             int uid = getCallingUid(); // client user id
+            Log.i("CallService", "callBack pid = " + pid + ", uid=" + uid);
+        }
+
+        @Override
+        public void send(byte[] arr) {
+            for (byte b : arr) {
+                Log.i("CallService", "send arr = " + b);
+            }
         }
     };
 

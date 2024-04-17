@@ -1,14 +1,15 @@
 package com.i.flow
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.i.designpattern.databinding.ActivityFlowBinding
+import com.i.service.BindServiceActivity
+import com.i.service.WindowViewService
 import kotlinx.coroutines.delay
-import kotlinx.coroutines.flow.asFlow
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.launch
@@ -66,7 +67,9 @@ class FlowActivity : AppCompatActivity() {
             }
         }
         mBinding.updateObj.setOnClickListener {
-            viewModel.updateObj()
+//            viewModel.updateObj()
+            val intent = Intent(this, BindServiceActivity::class.java)
+            startActivity(intent)
         }
 
         mBinding.combine.setOnClickListener {

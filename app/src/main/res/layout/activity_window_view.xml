@@ -11,4 +11,25 @@
         android:text="show window view"
         android:background="@color/colorPrimary"/>
 
+    <Button
+        android:id="@+id/bind"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="aidl_bind"
+        android:background="@color/colorPrimary"/>
+
+    <Button
+        android:id="@+id/callback"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="aidl_callback"
+        android:background="@color/colorPrimary"/>
+
+    <Button
+        android:id="@+id/send"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="aidl_send"
+        android:background="@color/colorPrimary"/>
+
 </LinearLayout>

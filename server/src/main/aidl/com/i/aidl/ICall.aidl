@@ -5,4 +5,5 @@ package com.i.aidl;
 
 interface ICall {
     void callBack(int a);
+    void send(in byte[] arr);
 }
