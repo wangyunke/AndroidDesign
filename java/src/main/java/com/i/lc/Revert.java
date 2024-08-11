@@ -1,5 +1,7 @@
 package com.i.lc;
 
+import java.util.Arrays;
+
 public class Revert {
 
     public static void main(String[] args) {
@@ -8,15 +10,15 @@ public class Revert {
 //        String result = revertEasy(value);
 //        System.out.println("result=" + result);
 
-//        String result = revertEasy2(value);
-//        System.out.println("result=" + result);
+        String result = revertEasy2(value);
+        System.out.println("result=" + result);
 
 //        String result = revertQi(value);
 //        System.out.println("result=" + result);
 
-        int[] arr = {3,0,1};
-        int res=missingNumber(arr);
-        System.out.println("result=" + res);
+//        int[] arr = {3,0,1};
+//        int res=missingNumber(arr);
+//        System.out.println("result=" + res);
     }
 
     public static int missingNumber(int[] nums) {

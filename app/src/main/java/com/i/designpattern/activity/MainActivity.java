@@ -23,10 +23,11 @@ public class MainActivity extends BaseActivity {
     }
 
     private void onClick() {
-        findViewById(R.id.origin_view).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.click).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.i(Catcher.TAG, "TextView/Button/ImageView等原生view被点击了");
+                startDetail(null);
             }
         });
     }
