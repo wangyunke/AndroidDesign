@@ -50,7 +50,7 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name=".activity.MainActivity"
+            android:name=".activity.KeyDownActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -102,6 +102,14 @@
         <service android:name="com.i.service.WindowViewService" />
 
         <activity android:name=".activity.BaseActivity" />
+
+        <receiver android:name=".activity.ScreenStatusReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.SCREEN_ON"/>
+                <action android:name="android.intent.action.SCREEN_OFF"/>
+            </intent-filter>
+        </receiver>
 
     </application>
 

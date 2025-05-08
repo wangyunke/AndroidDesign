@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/mainBasicLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="20dp"
+    android:layout_marginStart="20dp"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/valid_assistant"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:drawableEnd="@mipmap/ic_launcher"
+            android:drawablePadding="30dp"
+            android:text="检测语音助手开关"
+            android:textSize="30sp"/>
+
+        <TextView
+            android:id="@+id/valid_micphone_permission"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:drawablePadding="30dp"
+            android:drawableEnd="@mipmap/ic_launcher"
+            android:text="检测麦克风权限开关"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/valid_user"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:drawableEnd="@mipmap/ic_launcher"
+            android:drawablePadding="30dp"
+            android:text="检测是否有user 0进程"
+            android:textSize="30sp"/>
+
+        <TextView
+            android:id="@+id/valid_resource_path"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:drawableEnd="@mipmap/ic_launcher"
+            android:drawablePadding="30dp"
+            android:text="检测资源路径是否存在"
+            android:textSize="30sp"/>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white">
+
+            <Button
+                android:id="@+id/tip_pcm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableEnd="@mipmap/ic_launcher"
+                android:drawablePadding="30dp"
+                android:text="最后一个 检测PCM语音数据"
+                android:textSize="30sp" />
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="200dp"
+                android:background="@color/colorPrimary" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
