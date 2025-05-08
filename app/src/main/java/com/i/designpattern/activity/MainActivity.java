@@ -50,7 +50,7 @@ public class MainActivity extends BaseActivity {
                         "<font color=\"blue\"></font>/data/user/(userId)/technology.cariad.assistant/files/resample_**.pcm</font><br/>" +
                         "<b><font color=\"blue\"></font>5、录完音频记得关掉dump开关</font></b><br/>" +
                         "<font color=\"red\"></font>adb shell am broadcast -a com.aispeech.lyra.action.debug -f 0x01000000 --ei \"val\" 0</font><br/>";
-        ((TextView)findViewById(R.id.tip_pcm)).setText(Html.fromHtml(pcm, Html.FROM_HTML_MODE_LEGACY));
+//        ((TextView)findViewById(R.id.tip_pcm)).setText(Html.fromHtml(pcm, Html.FROM_HTML_MODE_LEGACY));
     }
 
     private void onClick() {

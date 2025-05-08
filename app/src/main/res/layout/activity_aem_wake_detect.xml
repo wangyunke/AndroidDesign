@@ -55,17 +55,19 @@
             android:background="@color/white">
 
             <Button
-                android:id="@+id/tip_pcm"
-                android:layout_width="wrap_content"
+                android:id="@+id/bottom"
+                android:layout_width="500dp"
                 android:layout_height="wrap_content"
                 android:drawableEnd="@mipmap/ic_launcher"
                 android:drawablePadding="30dp"
-                android:text="最后一个 检测PCM语音数据"
+                android:text="下面的button"
                 android:textSize="30sp" />
 
-            <ImageView
-                android:layout_width="fill_parent"
-                android:layout_height="200dp"
+            <Button
+                android:id="@+id/top"
+                android:layout_width="200dp"
+                android:layout_height="100dp"
+                android:text="上面的button"
                 android:background="@color/colorPrimary" />
 
         </RelativeLayout>
