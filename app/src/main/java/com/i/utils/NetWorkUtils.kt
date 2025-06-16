@@ -160,4 +160,18 @@ internal object NetWorkUtils {
         }
         return false
     }
+
+    private fun hasInternetAccess(): Boolean {
+        return try {
+            val url = URL("https://www.baidu.com")
+            val connection = url.openConnection() as HttpURLConnection
+            connection.requestMethod = "GET"
+            connection.connectTimeout = 3000
+            LogUtil.i("NetWorkUtils", "responseCode1=${connection.responseCode}")
+            connection.responseCode == 200
+        } catch (e: Exception) {
+            LogUtil.e("NetWorkUtils", "hasInternetAccess=${e.message}")
+            false
+        }
+    }
 }
