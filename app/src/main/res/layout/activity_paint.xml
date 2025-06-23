@@ -6,16 +6,25 @@
     <com.i.view.TrackView
         android:id="@+id/tv"
         android:layout_width="fill_parent"
-        android:layout_height="match_parent"
+        android:layout_height="500dp"
         android:background="@color/white"/>
 
     <Button
         android:id="@+id/clean"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_alignParentBottom="true"
+        android:layout_below="@id/tv"
         android:text="clean"
         android:textSize="30sp"
         android:background="@color/colorPrimary"/>
+
+
+    <TextView
+        android:id="@+id/rich"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/clean"
+        android:text="rich text"
+        android:textSize="30sp"/>
 
 </RelativeLayout>
