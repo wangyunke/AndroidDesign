@@ -15,10 +15,12 @@ import androidx.fragment.app.FragmentTransaction;
 import com.i.anr.LooperPrinter;
 
 public class MyApplication extends Application {
+    public static Application application;
 
     @Override
     public void onCreate() {
         super.onCreate();
+        application = this;
 
         Looper.getMainLooper().setMessageLogging(new LooperPrinter());
     }
