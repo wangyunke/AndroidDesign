@@ -55,4 +55,37 @@ public class ExampleUnitTest {
         System.out.println(matcher.matches()+"--------234---");
     }
 
+    @Test
+    public void matchRule() {
+        String RES_RULE = "speech-.*";
+        String origin = "speech-usb-audi-hcp3-48-v25072116-20250721175653";
+        Pattern pattern = Pattern.compile(RES_RULE);
+        Matcher matcher = pattern.matcher(origin);
+        if (matcher.matches()) {
+            System.out.println("match success");
+        } else {
+            System.out.println("match fail");
+        }
+    }
+
+    @Test
+    public void threadRun() {
+        new Thread(() -> {
+            System.out.println("11111111");
+
+            new Thread(() -> {
+                try {
+                    Thread.sleep(5000);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+                System.out.println("2222");
+            }).start();
+
+            System.out.println("33333");
+
+        }).start();
+        System.out.println("4444");
+    }
+
 }

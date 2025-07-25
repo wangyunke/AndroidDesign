@@ -3,6 +3,7 @@ package com.i.notification
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.i.designpattern.databinding.ActivityNotificationBinding
+import java.util.regex.Pattern
 
 
 class NotificationActivity : AppCompatActivity() {
@@ -25,7 +26,11 @@ class NotificationActivity : AppCompatActivity() {
             NotificationManager.notifyMessage("重要更新")
         }
 
-        binding.notifyProcess.setOnClickListener {
+        binding.zipFile.setOnClickListener {
+        }
+
+        binding.matchFile.setOnClickListener {
+
         }
     }
 
