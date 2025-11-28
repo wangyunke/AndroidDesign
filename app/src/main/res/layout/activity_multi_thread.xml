@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/start"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:text="start_thread"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/notify_process"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:text="notify_process"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/zip_file"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:text="zip_file"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/match_file"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:text="match_file"
+        android:textSize="20sp" />
+
+</LinearLayout>
