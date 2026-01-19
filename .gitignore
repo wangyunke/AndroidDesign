@@ -7,7 +7,7 @@
 /build
 /server/build/
 /java/build/
-/lib_network/build/
+/lib_network
 /captures
 /gradle
 gradlew

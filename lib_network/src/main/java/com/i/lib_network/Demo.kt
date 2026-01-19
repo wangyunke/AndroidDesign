@@ -24,7 +24,7 @@ internal object Demo {
             when (val awaitResult = call.requestServer()) {
                 is SuccessResult -> {
                     LogUtil.d(
-                        "OnSuccess",
+                        "OnSuccess1",
                         "code: ${awaitResult.data.respCode}",
                         "message: ${awaitResult.data.respMsg}",
                         "traceId: ${awaitResult.data.traceId}",
